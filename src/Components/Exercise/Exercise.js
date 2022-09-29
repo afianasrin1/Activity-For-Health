@@ -5,10 +5,10 @@ const Exercise = ({ exercise, handleAddToTime }) => {
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
-      <figure className="px-10 pt-10">
-        <img src={picture} alt="Shoes" className="rounded-xl" />
+      <figure className="px-10 pt-10  bg-slate-200 ">
+        <img src={picture} alt="Shoes" className="rounded-xl " />
       </figure>
-      <div className="card-body items-center text-center">
+      <div className="card-body items-center text-center bg-slate-200">
         <h2 className="card-title text-2xl">Exercise Name:{name}</h2>
         <p className="text-2xl pb-2">Time Required:{time}s</p>
         <p className="text-xl pb-2">Age:{age}</p>
@@ -19,7 +19,7 @@ const Exercise = ({ exercise, handleAddToTime }) => {
             onClick={() => handleAddToTime(exercise)}
             className="btn btn-primary"
           >
-            Add To Cart Time
+            Add To Time Cart
           </button>
         </div>
       </div>
