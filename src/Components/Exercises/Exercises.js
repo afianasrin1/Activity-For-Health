@@ -22,7 +22,7 @@ const Exercises = () => {
   };
 
   return (
-    <div className="pl-20 bg-gray-100 xl:grid xl:grid-cols-5 lg:grid-cols-3  sm:grid grid-cols-2 flex  flex-col-reverse">
+    <div className="pl-20 bg-gray-100 xl:grid xl:grid-cols-5 lg:grid-cols-3 sm:grid grid-cols-2 flex  flex-col-reverse">
       <div className=" xl:col-span-4 lg:col-span-2 pt-4  pb-10 ">
         <h1 className="text-4xl text-center font-bold mt-4">
           Selected my exercise
