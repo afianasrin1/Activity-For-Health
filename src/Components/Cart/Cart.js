@@ -1,42 +1,68 @@
 import React from "react";
-import "../../images/navbar.jpg";
-const Cart = ({ cart }) => {
-  console.log(cart);
-  return (
-    <div className="card card-side bg-base-100 shadow-xl">
-      <div className="flex">
-        {/* <figure>
-          <img src={logo} alt="Movie" />
-        </figure> */}
-        <h2 className="text-4xl text-center font-bold mt-4">
-          Sidratul muntaha
-        </h2>
-      </div>
-      <div className="bg-slate-200 py-5 px-5">
-        <h2 className="text-4xl text-center font-bold mt-4">
-          75kg <span>Weight</span>
-        </h2>
-      </div>
-      <div className="bg-slate-200 py-5 px-5">
-        <h2 className="card-title">Add A Break</h2>
-        <div className="card-actions justify-center">
-          <button className="btn btn-primary">10s</button>
-          <button className="btn btn-primary">20s</button>
-          <button className="btn btn-primary">40s</button>
-          <button className="btn btn-primary">30s</button>
-          <button className="btn btn-primary">60s</button>
-        </div>
-      </div>
-      <div>
-        <h2 className="text-4xl text-center font-bold mt-4">
-          Exercise Details
-        </h2>
-        {/* <h2> Exercise time:{time}</h2> */}
-        <h2> Breaktime:15s</h2>
-      </div>
+import { useEffect } from "react";
+import { useState } from "react";
+import "../../images/logo.jpg";
+const Cart = ({ time }) => {
+  const [second, setSecond] = useState();
 
-      <div className="card-actions justify-center">
-        <button className="btn btn-primary">Activity Completed</button>
+  return (
+    <div className="px-4 sticky top-6">
+      <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8">
+          <div className="flex gap-2  items-center">
+            {/* <img className="w-10 h-10 rounded-full" src={logo} alt="" /> */}
+            <div>
+              <h1 className="font-bold">Mst.Afia Nasrin</h1>
+              <p className="text-sm">
+                <span>Dhaka</span>, <span>Bangladesh</span>
+              </p>
+            </div>
+          </div>
+          <div className="bg-gray-100 px-4 py-2 rounded-lg flex justify-between">
+            <div className="text-center">
+              <h1>
+                <span className="font-bold">48</span>
+                <sub>kg</sub>
+              </h1>
+              <span>Weight</span>
+            </div>
+            <div className="text-center">
+              <h1>
+                <span className="font-bold">5.8</span>
+              </h1>
+              <span>Height</span>
+            </div>
+            <div className="text-center">
+              <h1>
+                <span className="font-bold">16</span>
+                <sub>yrs</sub>
+              </h1>
+              <span>Age</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-8">
+          <div>
+            <h1 className="font-bold mb-5">Add A Break</h1>
+            <div className="bg-gray-300 py-3 px-2 flex justify-between rounded-lg"></div>
+          </div>
+          <div>
+            <h1 className="font-bold  mb-5">Exercise Details</h1>
+            <div className="flex mb-8 flex-col gap-6">
+              <div className="bg-gray-100 px-2 flex justify-between py-3 rounded-lg ">
+                <h1 className="font-bold">Exercise time </h1>
+                <span>{time} seconds</span>
+              </div>
+              <div className="bg-gray-100 px-2 flex justify-between py-3 rounded-lg ">
+                <h1 className="font-bold">Break time </h1>
+                <span>{second} seconds</span>
+              </div>
+            </div>
+            <button className="btn btn-primary w-full">
+              Activity Completed
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

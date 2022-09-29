@@ -17,7 +17,7 @@ const Exercise = ({ exercise, handleAddToTime }) => {
         <div className="card-actions">
           <button
             onClick={() => handleAddToTime(exercise)}
-            className="btn btn-primary"
+            className="btn btn-accent"
           >
             Add To Time Cart
           </button>
