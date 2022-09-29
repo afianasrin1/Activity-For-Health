@@ -1,10 +1,12 @@
 import "./App.css";
+import Exercises from "./Components/Exercises/Exercises";
+import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <button className="btn btn-primary">Button</button>
-      <h1 className="text-center test-5xl font-medium">amar</h1>
+      <Navbar />
+      <Exercises />
     </div>
   );
 }
