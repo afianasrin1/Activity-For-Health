@@ -22,12 +22,12 @@ const Exercises = () => {
   };
 
   return (
-    <div className="md:pl-20 px-5 md:px-0 bg-gray-100 xl:grid xl:grid-cols-5 lg:grid-cols-3 sm:grid grid-cols-2 flex  flex-col-reverse">
+    <div className="md:pl-20 px-5 sm:px-0 bg-gray-100 xl:grid xl:grid-cols-5 lg:grid-cols-3 sm:grid grid-cols-2 flex  flex-col-reverse">
       <div className=" xl:col-span-4 lg:col-span-2 pt-4  pb-10 ">
         <h1 className="text-4xl text-center font-bold mt-4">
           Selected my exercise
         </h1>
-        <div className="grid gap-10 xl:grid-cols-3 lg:grid-cols-2">
+        <div className="grid gap-10 xl:grid-cols-3 lg:grid-cols-2 pr-10 ">
           {exercises.map((exercise) => (
             <Exercise
               key={exercise.id}
@@ -37,7 +37,7 @@ const Exercises = () => {
           ))}
         </div>
       </div>
-      <div className="bg-gray-200">
+      <div className="bg-base-100 ">
         <Cart time={time} />
       </div>
     </div>
