@@ -8,8 +8,8 @@ import Exercise from "../Exercise/Exercise";
 import "./Exercises.css";
 const Exercises = () => {
   const [exercises, setExercises] = useState([]);
-  //Time er state declare
-  const [cart, setCart] = useState([]);
+  //Cart Rightside state declare
+  const [time, setCart] = useState(0);
   useEffect(() => {
     fetch("Data.json")
       .then((res) => res.json())
@@ -17,17 +17,17 @@ const Exercises = () => {
   }, []);
   const handleAddToTime = (exercise) => {
     // console.log(exercise);
-    const newCart = [...cart, exercise];
-    setCart(newCart);
+
+    setCart(time + exercise.time);
   };
 
   return (
-    <div className="flex mt-10 mx-10">
-      {/* <h1 className="text-4xl text-center font-bold mt-4">
+    <div className=" pl-10 bg-gray-100 xl:grid xl:grid-cols-5 lg:grid-cols-3 gap-6 sm:grid grid-cols-2 flex  flex-col-reverse">
+      <div className=" xl:col-span-4 lg:col-span-2 pt-4  pb-10 ">
+        <h1 className="text-4xl text-center font-bold mt-4">
           Selected my exercise
-        </h1> */}
-      <div className="w-3/4">
-        <div className=" mx-auto grid grid-cols-4 md:grid-cols-2 lg:grid-cols-4 gap-5 ">
+        </h1>
+        <div className="grid  lg:grid-cols-3 sm:grid-cols-2  gap-15">
           {exercises.map((exercise) => (
             <Exercise
               key={exercise.id}
@@ -37,12 +37,8 @@ const Exercises = () => {
           ))}
         </div>
       </div>
-      <div className="w-1/4 ">
-        <div className="mx-auto grid grid-cols-1 ">
-          {/* <h1 className="text-4xl text-center font-bold mt-4">Activity</h1> */}
-
-          <Cart cart={cart} />
-        </div>
+      <div className="bg-gray-200">
+        <Cart time={time} />
       </div>
     </div>
   );
