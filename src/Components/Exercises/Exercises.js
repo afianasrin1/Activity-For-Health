@@ -1,13 +1,15 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import Cart from "../Cart/Cart";
+
 import Exercise from "../Exercise/Exercise";
-import Time from "../Time/Time";
+
 import "./Exercises.css";
 const Exercises = () => {
   const [exercises, setExercises] = useState([]);
   //Time er state declare
-  const [time, setTime] = useState([]);
+  const [cart, setCart] = useState([]);
   useEffect(() => {
     fetch("Data.json")
       .then((res) => res.json())
@@ -15,8 +17,8 @@ const Exercises = () => {
   }, []);
   const handleAddToTime = (exercise) => {
     // console.log(exercise);
-    const newTime = [...time, exercise];
-    setTime(newTime);
+    const newCart = [...cart, exercise];
+    setCart(newCart);
   };
 
   return (
@@ -38,7 +40,8 @@ const Exercises = () => {
       <div className="w-1/4 ">
         <div className="mx-auto grid grid-cols-1 ">
           {/* <h1 className="text-4xl text-center font-bold mt-4">Activity</h1> */}
-          <Time time={time} />
+
+          <Cart cart={cart} />
         </div>
       </div>
     </div>

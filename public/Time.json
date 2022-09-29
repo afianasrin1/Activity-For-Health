@@ -1,0 +1,7 @@
+[
+  { "id": 1, "breakTime": "10s" },
+  { "id": 2, "breakTime": "20s" },
+  { "id": 3, "breakTime": "25s" },
+  { "id": 4, "breakTime": "40s" },
+  { "id": 5, "breakTime": "50s" }
+]
