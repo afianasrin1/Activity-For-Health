@@ -4,7 +4,7 @@ const Exercise = ({ exercise, handleAddToTime }) => {
   const { name, id, time, age, about, picture } = exercise;
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl">
       <figure className="px-10 pt-10  bg-slate-200 ">
         <img src={picture} alt="Shoes" className="rounded-xl " />
       </figure>

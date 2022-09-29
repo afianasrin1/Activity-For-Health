@@ -3,30 +3,25 @@ import { useEffect } from "react";
 import { useState } from "react";
 import "../../images/logo.jpg";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Cart = ({ time }) => {
-  // const [breakTime, setBreakTime] = useState([]);
-  const [second, setSecond] = useState();
+  const toastify = () => {
+    toast("You have completed your activity!", { position: "top-center" });
+  };
+  const [breakTime, setBreakTime] = useState(0);
+  useEffect(() => {}, [breakTime]);
 
-  // useEffect(() => {
-  //   fetch("Time.json")
-  //     .then((res) => res.json())
-  //     .then((data) => setBreakTime);
-  // }, []);
-
-  // const addLocalStorage=Time=>{
-  //   localStorage.setItem("break",Time);
-  // }
-  // const getLocalStorageItem=localStorage.getItem("break")
+  const addLocalStorage = (Time) => {
+    setBreakTime(Time);
+    localStorage.setItem("break", Time);
+  };
+  const getLocalStorageItem = localStorage.getItem("break");
 
   return (
     <div className="px-4 sticky top-6">
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-8">
           <div className="flex gap-2  items-center">
-            {/* <img src={logo} alt="" /> */}
-            {/* <figure>
-              <img src={logo} alt="Movie" />
-            </figure> */}
             <img
               className="w-10 h-10 rounded-full"
               src="https://scontent.fdac19-1.fna.fbcdn.net/v/t1.6435-9/87036245_1270378613157592_4694736765943021568_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=xSaUN3Vg_VcAX-91_m0&_nc_ht=scontent.fdac19-1.fna&oh=00_AT-simAjOM5AkQ2PJmbLHn7Z7jSYK3kicalv42W9sHK2Gg&oe=635A16F1"
@@ -63,18 +58,56 @@ const Cart = ({ time }) => {
           </div>
         </div>
         <div className="flex flex-col gap-8">
-          {/* <div>
+          <div>
             <h1 className="font-bold mb-5">Add A Break</h1>
             <div className="bg-gray-300 py-3 px-2 flex justify-between rounded-lg">
-            {breakTime.map(break => (
-								<button
-									onClick={e => setSecond(e.target.innerText)}
-									key={break.id}
-									className="bg-white p-2 hover:bg-blue-600 transition-all font-bold hover:text-white rounded-full">
-									{breack.breakTime}
-								</button>
-							))}
-            </div> */}
+              <div className="rounded-full cursor-pointer transition-all   bg-white   hover:bg-blue-600 active:bg-blue-600  hover:text-white">
+                <button
+                  className="  p-2 font-bold "
+                  onClick={(e) => addLocalStorage(e.target.innerText)}
+                >
+                  15
+                </button>
+                <span className="relative right-2">s</span>
+              </div>
+              <div className="rounded-full cursor-pointer transition-all   bg-white   hover:bg-blue-600 active:bg-blue-600  hover:text-white">
+                <button
+                  className="  p-2 font-bold "
+                  onClick={(e) => addLocalStorage(e.target.innerText)}
+                >
+                  25
+                </button>
+                <span className="relative right-2">s</span>
+              </div>
+              <div className="rounded-full cursor-pointer transition-all   bg-white   hover:bg-blue-600 active:bg-blue-600  hover:text-white">
+                <button
+                  className="  p-2 font-bold "
+                  onClick={(e) => addLocalStorage(e.target.innerText)}
+                >
+                  35
+                </button>
+                <span className="relative right-2">s</span>
+              </div>
+              <div className="rounded-full cursor-pointer transition-all   bg-white   hover:bg-blue-600 active:bg-blue-600  hover:text-white">
+                <button
+                  className="  p-2 font-bold "
+                  onClick={(e) => addLocalStorage(e.target.innerText)}
+                >
+                  45
+                </button>
+                <span className="relative right-2">s</span>
+              </div>
+              <div className="rounded-full cursor-pointer transition-all   bg-white   hover:bg-blue-600 active:bg-blue-600  hover:text-white">
+                <button
+                  className="  p-2 font-bold "
+                  onClick={(e) => addLocalStorage(e.target.innerText)}
+                >
+                  60
+                </button>
+                <span className="relative right-2">s</span>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
           <h1 className="font-bold  mb-5">Exercise Details</h1>
@@ -85,13 +118,15 @@ const Cart = ({ time }) => {
             </div>
             <div className="bg-gray-100 px-2 flex justify-between py-3 rounded-lg ">
               <h1 className="font-bold">Break time </h1>
-              <span>{second} seconds</span>
+              <span>{getLocalStorageItem} seconds</span>
             </div>
           </div>
-          <button className="btn btn-primary w-full">Activity Completed</button>
-          {/* toast("Wow Activity Completed!"); */}
+          <button onClick={toastify} className="btn btn-primary w-full">
+            Activity Completed
+          </button>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
